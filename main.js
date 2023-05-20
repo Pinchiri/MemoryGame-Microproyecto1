@@ -1,14 +1,21 @@
 //Juego de Memoria
 const cardsList = document.querySelectorAll(".card");
-var score = document.getElementById("score");
+
 
 let flipped = false;
 let first, second;
 
 let lock = true;
-let scoreInt = 0;
+
 
 let matchCounter = 0;
+
+let playerTime = 0;
+
+var displayScore = document.getElementById("total");
+let scoreInt = 0;
+var totalScore = 0;
+var score = document.getElementById("score");
 
 shuffle();
 
@@ -47,21 +54,25 @@ function match() {
         second.removeEventListener("click", flipCard);
 
         if (matchCounter == 7) {
+            updateScore();
             console.log("HAS GANADO!");
-            resetTimer();
+            stopTimer();
+
+            totalScore = calculateTotalScore();
+            console.log(totalScore);
+            
+            displayScore.textContent = "TOTAL SCORE: " + totalScore + " pts"
+            
         } else {
             matchCounter++;
-            scoreInt = scoreInt + 100;
-            score.textContent = scoreInt + " pts";
+            updateScore();
         }
-        console.log(matchCounter);
-        console.log("Match")
+        
     } else {
         lock = true;
         setTimeout(() => {
             first.classList.remove("flip");
             second.classList.remove("flip");
-            
             reset();
         }, 500);
     }
@@ -74,10 +85,9 @@ function shuffle() {
     });
 }
 
-function unlockBoard() {
-    lock = false;
+function restartGame() {
+    
 }
-
 cardsList.forEach(card => card.addEventListener("click", flipCard));
 //Juego de Memoria
 
@@ -85,16 +95,17 @@ cardsList.forEach(card => card.addEventListener("click", flipCard));
 const play = document.getElementById("playButton");
 
 play.addEventListener("click", startTimer);
-play.addEventListener("click", unlockBoard);
+play.addEventListener("click", reset);
 
 var timerDisplay = document.getElementById("timer");
 var totalTime = 180;
+var timer;
 
 function startTimer() {
     play.disabled = true;
     var minutes, seconds;
 
-    var timer = setInterval(function() {
+    timer = setInterval(function() {
     minutes = parseInt(totalTime / 60, 10);
     seconds = parseInt(totalTime % 60, 10);
 
@@ -110,6 +121,7 @@ function startTimer() {
         play.disabled = false;
       }
     }, 1000);
+     
 }
 
 function resetTimer() {
@@ -117,5 +129,30 @@ function resetTimer() {
     totalTime = 180;
     timerDisplay.textContent = "03:00";
   }
+
+function stopTimer() {
+    clearInterval(timer);
+    console.log("Total Time: " + totalTime);
+    playerTime = totalTime;
+    play.disabled = false;
+    minutes = parseInt(totalTime / 60, 10);
+    seconds = parseInt(totalTime % 60, 10);
+
+    timerDisplay.textContent = minutes + ":" + seconds;
+  } 
 //Timer
 
+//Score
+
+
+function updateScore() {
+    scoreInt = scoreInt + 100;
+    score.textContent = scoreInt + " pts";
+}
+
+function calculateTotalScore() {
+    console.log("P" + playerTime);
+    console.log(scoreInt);
+    totalScore = Math.floor(scoreInt * (playerTime / 180));
+    return totalScore;
+}

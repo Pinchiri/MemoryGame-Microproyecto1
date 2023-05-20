@@ -13,7 +13,9 @@
     <form class="usernameBox">
       <h2 class="enterUsername_label">Enter your username</h2>
       <input type="text" name="username" class="enterUsername" />
-      <input type="button" value="PLAY" class="playButton" id="playButton" />
+      <a href="#game">
+        <input type="button" value="PLAY" class="playButton" id="playButton" />
+      </a>
     </form>
 
     <section class="statistics">
@@ -21,7 +23,7 @@
       <div class="score" id="score">0 pts</div>
     </section>
 
-    <section class="memoryCardGame">
+    <section class="memoryCardGame" id="game">
       <div class="card" data-framework="saman">
         <img class="front" src="images/Samán.jpg" />
         <img class="back" alt="" />
@@ -86,6 +88,11 @@
         <img class="front" src="images/Logo.png" />
         <img class="back" alt="" />
       </div>
+    </section>
+
+    <section class="postGame">
+      <input type="button" value="RESTART" class="resetButton" id="reset" />
+      <div class="total" id="total">TOTAL SCORE: 0 pts</div>
     </section>
 
     <script src="main.js"></script>

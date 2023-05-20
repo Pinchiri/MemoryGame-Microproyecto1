@@ -137,8 +137,8 @@ h1{
 
 
 .memoryCardGame {
-    width: 640px;
-    height: 640px;
+    width: 570px;
+    height: 570px;
     
     display: flex;
     flex-wrap: wrap;
@@ -193,4 +193,41 @@ h1{
 
 .front {
     transform: rotateY(180deg);
+}
+
+.postGame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.resetButton {
+    height: 60px;
+    width: 300px;
+    margin-right: 20px;
+
+
+
+    background: #FCBF49;
+    border-radius: 87px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    
+
+}
+
+.total {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    
+
+
+    color: #FFFFFF;
 }
