@@ -1,14 +1,19 @@
+//Juego de Memoria
 const cardsList = document.querySelectorAll(".card");
+var score = document.getElementById("score");
 
 let flipped = false;
 let first, second;
 
-let lock = false;
-let score = 0;
+let lock = true;
+let scoreInt = 0;
+
+let matchCounter = 0;
 
 shuffle();
 
 function flipCard() {
+    
     if (lock) return;
     if (this === first) return;
 
@@ -37,8 +42,19 @@ function reset() {
 function match() {
     
     if (first.dataset.framework === second.dataset.framework) {
+
         first.removeEventListener("click", flipCard);
         second.removeEventListener("click", flipCard);
+
+        if (matchCounter == 7) {
+            console.log("HAS GANADO!");
+            resetTimer();
+        } else {
+            matchCounter++;
+            scoreInt = scoreInt + 100;
+            score.textContent = scoreInt + " pts";
+        }
+        console.log(matchCounter);
         console.log("Match")
     } else {
         lock = true;
@@ -47,7 +63,7 @@ function match() {
             second.classList.remove("flip");
             
             reset();
-        }, 1500);
+        }, 500);
     }
 }
 
@@ -58,5 +74,48 @@ function shuffle() {
     });
 }
 
+function unlockBoard() {
+    lock = false;
+}
 
 cardsList.forEach(card => card.addEventListener("click", flipCard));
+//Juego de Memoria
+
+//Timer
+const play = document.getElementById("playButton");
+
+play.addEventListener("click", startTimer);
+play.addEventListener("click", unlockBoard);
+
+var timerDisplay = document.getElementById("timer");
+var totalTime = 180;
+
+function startTimer() {
+    play.disabled = true;
+    var minutes, seconds;
+
+    var timer = setInterval(function() {
+    minutes = parseInt(totalTime / 60, 10);
+    seconds = parseInt(totalTime % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    timerDisplay.textContent = minutes + ":" + seconds;
+    totalTime--;
+
+    if (totalTime < 0) {
+        clearInterval(timer);
+        timerDisplay.textContent = "Tiempo finalizado";
+        play.disabled = false;
+      }
+    }, 1000);
+}
+
+function resetTimer() {
+    clearInterval(timer);
+    totalTime = 180;
+    timerDisplay.textContent = "03:00";
+  }
+//Timer
+

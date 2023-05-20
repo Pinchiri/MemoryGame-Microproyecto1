@@ -103,6 +103,39 @@ h1{
     background: #f7a90e;
 }
 
+.statistics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-top: 100px;
+    
+}
+
+.timer{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 77px;
+    color: white;
+    text-align: center;
+    padding-right: 240px;
+    
+}
+
+.score {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 77px;
+    color: white;
+    text-align: center;
+    
+}
+
+
 .memoryCardGame {
     width: 640px;
     height: 640px;
