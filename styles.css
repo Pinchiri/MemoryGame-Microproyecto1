@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #121212;
+
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 77px;
+    
+    background: #1E1E1E;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 120px;
+    border-radius: 0px 0px 10px 10px;
+  
+}
+
+
+.usernameBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+
+}
+
+.enterUsername_label {
+
+    margin-top: 40px;
+    margin-bottom: 12px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+}
+
+
+.enterUsername{
+
+
+    width: 723px;
+    height: 60px;
+    left: 450px;
+    top: 280px;
+
+    background: #3E3E42;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+
+.playButton {
+
+    margin-top: 40px;
+    height: 120px;
+    width: 487px;
+    left: 600px;
+    top: 488px;
+
+    background: #FCBF49;
+    border-radius: 87px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 77px;
+
+}
