@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
+
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -55,8 +57,6 @@ h1{
 .enterUsername{
     width: 723px;
     height: 60px;
-    left: 450px;
-    top: 280px;
 
     background: #3E3E42;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -75,8 +75,6 @@ h1{
     margin-top: 40px;
     height: 120px;
     width: 487px;
-    left: 600px;
-    top: 488px;
 
     background: #FCBF49;
     border-radius: 87px;
@@ -249,7 +247,8 @@ h1{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: auto;
+    
+
 }
 
 caption {
@@ -269,8 +268,7 @@ caption {
 th, td{
     border: 2px solid  #FCBF49;
     border-collapse: collapse;
-    height: 100%;
-    width: max-content;
+
 }
 
 th {
@@ -301,7 +299,6 @@ tr:hover {
 }
 
 
-
 td{
     background-color: #FCBF49;
     font-family: 'Inter';
@@ -312,3 +309,104 @@ td{
     text-align: center;
     padding: 10px;
 }   
+
+/*Vista Télefono*/
+@media (max-width: 450px) {
+    h1{
+        font-size: 35px;
+        width: 100%;
+        text-align: center;
+        line-height: normal;
+    }
+
+    .enterUsername_label {
+        font-size: 20px;
+        margin-bottom: 6px;
+        margin-top: 10px;
+    }
+
+    .enterUsername {
+        width: 300px;
+        height: 40px;
+        line-height: normal;
+        font-size: 20px;
+    }
+
+    .playButton {
+        width: 300px;
+        height: 70px;
+        margin-top: 20px;
+        
+        font-size: 60px;
+
+
+    }
+
+    .viewLeaderboard {
+        width: 280px;
+        height: 40px;
+
+        font-size: 20px;
+    }
+
+    .memoryCardGame {
+        width: 375px;
+        height: 450px;
+    }
+
+    .statistics {
+        padding-bottom: 2px;
+    }
+
+    .timer {
+        font-size: 30px;
+
+        padding-right: 75px;
+        
+    }
+
+    .score {
+        font-size: 30px;
+    }
+
+    .card {
+        width: calc(25% - 10px);
+        height: calc(25%- 10px);
+    }
+
+    .front {
+        padding: 0%;
+    }
+
+    .postGame {
+        flex-direction: column;
+    }
+
+    .resetButton {
+        margin-right: 0;
+    }
+
+    .total {
+        font-size: 25px;
+        margin-top: 7px;
+    }
+
+    caption {
+        font-size: 40px;
+    }
+
+    th {
+        font-size: 40px;
+        padding: 5px; 
+    }
+    
+    td {
+        padding: 5px;
+        font-size: 20px;
+    }
+}
+
+/* Vista Tablets */
+@media (max-width: 820px) {
+
+}
