@@ -36,11 +36,9 @@ h1{
     align-items: center;
     padding: 20px;
     flex-direction: column;
-
 }
 
 .enterUsername_label {
-
     margin-top: 40px;
     margin-bottom: 12px;
     
@@ -55,8 +53,6 @@ h1{
 
 
 .enterUsername{
-
-
     width: 723px;
     height: 60px;
     left: 450px;
@@ -73,11 +69,9 @@ h1{
     font-size: 40px;
     line-height: 48px;
     padding-left: 20px;
-
 }
 
 .playButton {
-
     margin-top: 40px;
     height: 120px;
     width: 487px;
@@ -93,7 +87,6 @@ h1{
     font-size: 64px;
     line-height: 77px;
     color: #1E1E1E;
-
 }
 
 .playButton:disabled {
@@ -108,13 +101,36 @@ h1{
     transform: scale(1.025);
 }
 
+
+.viewLeaderboard {
+    width: 391px;
+    height: 45px;
+    margin-top: 10px;
+
+    background: #FCBF49;
+    border-radius: 87px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+
+    color: #121212;
+}
+
+.viewLeaderboard:hover {
+    background: #f7a90e;
+    transform: scale(1.025);
+}
+
 .statistics {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-bottom: 10px;
-    padding-top: 100px;
-    
+    padding-top: 100px;  
 }
 
 .timer{
@@ -126,7 +142,6 @@ h1{
     color: white;
     text-align: center;
     padding-right: 240px;
-    
 }
 
 .score {
@@ -136,8 +151,7 @@ h1{
     font-size: 64px;
     line-height: 77px;
     color: white;
-    text-align: center;
-    
+    text-align: center; 
 }
 
 
@@ -151,7 +165,6 @@ h1{
     margin: auto;
     
     perspective: 1000px;
-
 }
 
 .card {
@@ -163,9 +176,7 @@ h1{
 
     transform: scale(1);
     transform-style: preserve-3d;
-    transition: transform 0.5s;
-
-    
+    transition: transform 0.5s;  
 }
 
 .card.flip {
@@ -191,9 +202,6 @@ h1{
     background-color: #1E1E1E;
 
     backface-visibility: hidden;
-    
-    
-
 }
 
 .front {
@@ -213,7 +221,6 @@ h1{
     width: 300px;
     margin-right: 20px;
 
-
     color: #121212;
     background: #FCBF49;
     border-radius: 87px;
@@ -221,9 +228,12 @@ h1{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
-    font-size: 50px;
-    
+    font-size: 45px;
+}
 
+.resetButton:hover {
+    background: #f7a90e;
+    transform: scale(1.025);
 }
 
 .total {
@@ -243,8 +253,6 @@ h1{
 }
 
 caption {
-
-    
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
@@ -256,7 +264,6 @@ caption {
     margin-bottom: 50px;
     
     width: 100%;
-
 }
 
 th, td{
@@ -266,8 +273,7 @@ th, td{
     width: max-content;
 }
 
-th {
-    
+th { 
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
@@ -285,7 +291,6 @@ tr {
     color: white;
     text-align: center;
     padding: 10px;
-
 }
 
 
@@ -303,5 +308,4 @@ td{
     color: white;
     text-align: center;
     padding: 10px;
-
 }   
