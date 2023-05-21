@@ -86,11 +86,13 @@ function shuffle() {
 }
 
 function endGame() {
-    updateScore();
+
+    
     stopTimer();
 
     totalScore = calculateTotalScore();
-
+    score.textContent = totalScore + " pts";
+    
     if (totalScore < 0) {
         totalScore = 0;
     }
