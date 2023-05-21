@@ -87,7 +87,7 @@ function shuffle() {
 
 function endGame() {
 
-    
+    updateScore();
     stopTimer();
 
     totalScore = calculateTotalScore();
