@@ -12,13 +12,6 @@ let matchCounter = 0;
 
 let playerTime = 0;
 
-var displayScore = document.getElementById("total");
-let scoreInt = 0;
-var totalScore = 0;
-var score = document.getElementById("score");
-
-shuffle();
-
 function flipCard() {
     
     if (lock) return;
@@ -61,7 +54,8 @@ function match() {
             totalScore = calculateTotalScore();
             console.log(totalScore);
             
-            displayScore.textContent = "TOTAL SCORE: " + totalScore + " pts"
+            displayScore.textContent = "TOTAL SCORE: " + totalScore + " pts";
+            matchCounter = 0;
             
         } else {
             matchCounter++;
@@ -78,6 +72,17 @@ function match() {
     }
 }
 
+function unflipAll() {
+    cardsList.forEach(card=> {
+        card.classList.remove("flip");
+        card.addEventListener("click", flipCard);
+    });
+    lock = false;
+
+    
+    
+}
+
 function shuffle() {
     cardsList.forEach(card => {
         let position = Math.floor(Math.random() * 17);
@@ -91,15 +96,29 @@ function restartGame() {
 cardsList.forEach(card => card.addEventListener("click", flipCard));
 //Juego de Memoria
 
-//Timer
+//Buttons
 const play = document.getElementById("playButton");
+const restart = document.getElementById("resetButton");
 
+play.addEventListener("click", resetTimer);
 play.addEventListener("click", startTimer);
 play.addEventListener("click", reset);
+play.addEventListener("click", shuffle);
+play.addEventListener("click", resetScore);
+play.addEventListener("click", unflipAll);
 
+restart.addEventListener("click", resetTimer);
+restart.addEventListener("click", startTimer);
+restart.addEventListener("click", reset);
+restart.addEventListener("click", shuffle);
+restart.addEventListener("click", resetScore);
+restart.addEventListener("click", unflipAll);
+
+//Timer
 var timerDisplay = document.getElementById("timer");
 var totalTime = 180;
 var timer;
+
 
 function startTimer() {
     play.disabled = true;
@@ -128,6 +147,7 @@ function resetTimer() {
     clearInterval(timer);
     totalTime = 180;
     timerDisplay.textContent = "03:00";
+    playerTime = 0;
   }
 
 function stopTimer() {
@@ -142,8 +162,12 @@ function stopTimer() {
   } 
 //Timer
 
-//Score
 
+//Score
+var displayScore = document.getElementById("total");
+let scoreInt = 0;
+var totalScore = 0;
+var score = document.getElementById("score");
 
 function updateScore() {
     scoreInt = scoreInt + 100;
@@ -156,3 +180,14 @@ function calculateTotalScore() {
     totalScore = Math.floor(scoreInt * (playerTime / 180));
     return totalScore;
 }
+
+function resetScore() {
+    totalScore = 0;
+    playerScore = 0;
+    scoreInt = 0;
+    score.textContent = "0 pts";
+    displayScore.textContent = "TOTAL SCORE: 0 pts";
+}
+
+//User
+var username = document.getElementById("username");
