@@ -116,12 +116,17 @@ const restart = document.getElementById("resetButton");
 const viewLeaderboard = document.getElementById("viewLeaderboard");
 
 play.disabled = true;
+restart.disabled = true;
+
 play.addEventListener("click", resetTimer);
 play.addEventListener("click", startTimer);
 play.addEventListener("click", reset);
 play.addEventListener("click", shuffle);
 play.addEventListener("click", resetScore);
 play.addEventListener("click", unflipAll);
+play.addEventListener("click", () => {
+    restart.disabled = false;
+});
 
 
 

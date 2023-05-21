@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
 
-
 * {
     margin: 0;
     box-sizing: border-box;
@@ -229,6 +228,10 @@ h1{
     font-size: 45px;
 }
 
+.resetButton:disabled {
+    opacity: 0.5;
+}
+
 .resetButton:hover {
     background: #f7a90e;
     transform: scale(1.025);
@@ -238,7 +241,7 @@ h1{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
-    font-size: 50px;    
+    font-size: 40px;    
     color: #FFFFFF;
 }
 
@@ -310,10 +313,10 @@ td{
     padding: 10px;
 }   
 
-/*Vista Télefono*/
-@media (max-width: 450px) {
+/*Vista Télefono y Tablets*/
+@media (max-width: 768px) {
     h1{
-        font-size: 35px;
+        font-size: 30px;
         width: 100%;
         text-align: center;
         line-height: normal;
@@ -336,7 +339,6 @@ td{
         width: 300px;
         height: 70px;
         margin-top: 20px;
-        
         font-size: 60px;
 
 
@@ -391,6 +393,7 @@ td{
         margin-top: 7px;
     }
 
+
     caption {
         font-size: 40px;
     }
@@ -404,9 +407,4 @@ td{
         padding: 5px;
         font-size: 20px;
     }
-}
-
-/* Vista Tablets */
-@media (max-width: 820px) {
-
 }
