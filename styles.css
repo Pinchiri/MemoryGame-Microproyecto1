@@ -203,6 +203,7 @@ h1{
 
 .front {
     transform: rotateY(180deg);
+    padding: 0%;
 }
 
 .postGame {
@@ -374,10 +375,6 @@ td{
     .card {
         width: calc(25% - 10px);
         height: calc(25%- 10px);
-    }
-
-    .front {
-        padding: 0%;
     }
 
     .postGame {

@@ -75,9 +75,7 @@ function unflipAll() {
         card.addEventListener("click", flipCard);
     });
     lock = false;
-
-    
-    
+ 
 }
 
 function shuffle() {
@@ -92,7 +90,10 @@ function endGame() {
     stopTimer();
 
     totalScore = calculateTotalScore();
-    console.log(totalScore);
+
+    if (totalScore < 0) {
+        totalScore = 0;
+    }
             
     displayScore.textContent = "TOTAL SCORE: " + totalScore + " pts";
     matchCounter = 0;
@@ -104,7 +105,7 @@ function endGame() {
     saveHighScore();
     setTimeout(() => {
         location.reload();
-    }, 3000);
+    }, 5000);
 }
 
 cardsList.forEach(card => card.addEventListener("click", flipCard));
@@ -176,7 +177,6 @@ function resetTimer() {
 
 function stopTimer() {
     clearInterval(timer);
-    console.log("Total Time: " + totalTime);
     playerTime = totalTime;
     play.disabled = false;
     minutes = parseInt(totalTime / 60, 10);
@@ -199,8 +199,6 @@ function updateScore() {
 }
 
 function calculateTotalScore() {
-    console.log("P" + playerTime);
-    console.log(scoreInt);
     totalScore = Math.floor(scoreInt * (playerTime / 180));
     return totalScore;
 }
@@ -217,7 +215,6 @@ function resetScore() {
 const username = document.getElementById("username");
 
 username.addEventListener("keyup", () => {
-    console.log(username.value);
     play.disabled = !username.value;
 });
 
