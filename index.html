@@ -13,7 +13,7 @@
     <form class="usernameBox">
       <h2 class="enterUsername_label">Enter your username</h2>
       <input type="text" id="username" class="enterUsername" />
-      <a href="#game">
+      <a href="#timer">
         <input type="button" value="PLAY" class="playButton" id="playButton" />
       </a>
     </form>
@@ -100,6 +100,18 @@
       <div class="total" id="total">TOTAL SCORE: 0 pts</div>
     </section>
 
+    <table class="leaderboard" id="leaderboard">
+      <caption>
+        LEADERBOARD
+      </caption>
+
+      <tbody id="leadBody">
+        <tr>
+          <th class="tableHeader">Username</th>
+          <th class="tableHeader">Score</th>
+        </tr>
+      </tbody>
+    </table>
     <script src="main.js"></script>
   </body>
 </html>

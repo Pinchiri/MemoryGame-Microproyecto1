@@ -92,15 +92,20 @@ h1{
     font-weight: 900;
     font-size: 64px;
     line-height: 77px;
+    color: #1E1E1E;
 
 }
 
+.playButton:disabled {
+    opacity: 0.5;
+}
 .playButton:active {
     transform: scale(0.95);
 }
 
 .playButton:hover {
     background: #f7a90e;
+    transform: scale(1.025);
 }
 
 .statistics {
@@ -209,7 +214,7 @@ h1{
     margin-right: 20px;
 
 
-
+    color: #121212;
     background: #FCBF49;
     border-radius: 87px;
 
@@ -225,9 +230,78 @@ h1{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
-    font-size: 50px;
-    
-
-
+    font-size: 50px;    
     color: #FFFFFF;
 }
+
+.leaderboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+caption {
+
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 64px;
+    color: #121212;
+    background-color: #FCBF49;
+
+    margin-top: 150px;
+    margin-bottom: 50px;
+    
+    width: 100%;
+
+}
+
+th, td{
+    border: 2px solid  #FCBF49;
+    border-collapse: collapse;
+    height: 100%;
+    width: max-content;
+}
+
+th {
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+tr {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+
+}
+
+
+tr:hover {
+    transform: scale(1.025);
+}
+
+
+
+td{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+
+}   

@@ -12,6 +12,11 @@ let matchCounter = 0;
 
 let playerTime = 0;
 
+const mostRecentScore = localStorage.getItem("mostRecentScore");
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+const allScores = JSON.parse(localStorage.getItem("allScores")) || [];
+
+
 function flipCard() {
     
     if (lock) return;
@@ -47,15 +52,7 @@ function match() {
         second.removeEventListener("click", flipCard);
 
         if (matchCounter == 7) {
-            updateScore();
-            console.log("HAS GANADO!");
-            stopTimer();
-
-            totalScore = calculateTotalScore();
-            console.log(totalScore);
-            
-            displayScore.textContent = "TOTAL SCORE: " + totalScore + " pts";
-            matchCounter = 0;
+            endGame();
             
         } else {
             matchCounter++;
@@ -90,9 +87,23 @@ function shuffle() {
     });
 }
 
-function restartGame() {
-    
+function endGame() {
+    updateScore();
+    stopTimer();
+
+    totalScore = calculateTotalScore();
+    console.log(totalScore);
+            
+    displayScore.textContent = "TOTAL SCORE: " + totalScore + " pts";
+    matchCounter = 0;
+
+    localStorage.setItem("mostRecentScore", totalScore);
+    localStorage.setItem("mostRecentUsername", username.value);
+
+    saveHighScore();
+    updateLeaderboard();
 }
+
 cardsList.forEach(card => card.addEventListener("click", flipCard));
 //Juego de Memoria
 
@@ -100,12 +111,14 @@ cardsList.forEach(card => card.addEventListener("click", flipCard));
 const play = document.getElementById("playButton");
 const restart = document.getElementById("resetButton");
 
+play.disabled = true;
 play.addEventListener("click", resetTimer);
 play.addEventListener("click", startTimer);
 play.addEventListener("click", reset);
 play.addEventListener("click", shuffle);
 play.addEventListener("click", resetScore);
 play.addEventListener("click", unflipAll);
+
 
 restart.addEventListener("click", resetTimer);
 restart.addEventListener("click", startTimer);
@@ -138,6 +151,7 @@ function startTimer() {
         clearInterval(timer);
         timerDisplay.textContent = "Tiempo finalizado";
         play.disabled = false;
+        endGame();
       }
     }, 1000);
      
@@ -190,4 +204,41 @@ function resetScore() {
 }
 
 //User
-var username = document.getElementById("username");
+const username = document.getElementById("username");
+
+username.addEventListener("keyup", () => {
+    console.log(username.value);
+    play.disabled = !username.value;
+});
+
+
+//Leaderboard
+const leaderboardTable = document.getElementById("leadBody");
+
+window.onload = function updateLeaderboard() {
+    
+    leaderboardTable.innerHTML += highScores.map(userScore => {
+        return `\n<tr><td>${userScore.user}</td><td>${userScore.score} pts</td></tr>\n`;
+    }).join("");    
+
+}
+
+function saveHighScore() {
+    
+    const userScore = {
+        score: mostRecentScore,
+        user: username.value
+    };
+
+    allScores.push(userScore);
+    highScores.push(userScore);
+    highScores.sort((a, b) => b.score - a.score);
+    highScores.splice(5);
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+
+}
+
+
+
+
