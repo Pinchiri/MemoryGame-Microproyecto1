@@ -99,9 +99,12 @@ function endGame() {
 
     localStorage.setItem("mostRecentScore", totalScore);
     localStorage.setItem("mostRecentUsername", username.value);
+    
 
     saveHighScore();
-    updateLeaderboard();
+    setTimeout(() => {
+        location.reload();
+    }, 3000);
 }
 
 cardsList.forEach(card => card.addEventListener("click", flipCard));
@@ -110,6 +113,7 @@ cardsList.forEach(card => card.addEventListener("click", flipCard));
 //Buttons
 const play = document.getElementById("playButton");
 const restart = document.getElementById("resetButton");
+const viewLeaderboard = document.getElementById("viewLeaderboard");
 
 play.disabled = true;
 play.addEventListener("click", resetTimer);
@@ -118,6 +122,7 @@ play.addEventListener("click", reset);
 play.addEventListener("click", shuffle);
 play.addEventListener("click", resetScore);
 play.addEventListener("click", unflipAll);
+
 
 
 restart.addEventListener("click", resetTimer);
@@ -226,7 +231,7 @@ window.onload = function updateLeaderboard() {
 function saveHighScore() {
     
     const userScore = {
-        score: mostRecentScore,
+        score: totalScore,
         user: username.value
     };
 
@@ -236,6 +241,7 @@ function saveHighScore() {
     highScores.splice(5);
 
     localStorage.setItem("highScores", JSON.stringify(highScores));
+    localStorage.setItem("allScores", JSON.stringify(allScores));
 
 }
 
